@@ -489,6 +489,10 @@ body {
   max-width: 450px;
   margin-left: auto;
 }
+.contacts__body .item-text {
+  resize: none;
+  margin: 0 0 30px 0;
+}
 .contacts__title {
   font-size: 40px;
   line-height: 200%;
@@ -540,5 +544,28 @@ body {
 }
 
 /*-----------FOOTER-----------*/
+.footer__column {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  min-height: 150px;
+}
+.footer__column a {
+  color: white;
+  font-size: 20px;
+  line-height: 250%;
+  transition: color 0.3s ease;
+}
+.footer__column a:hover {
+  color: #beaf83;
+}
+.footer__column-item {
+  margin: 0 20px 0 0;
+}
+.footer .social__item {
+  margin: 0 0 0 20px;
+}
 
 /*# sourceMappingURL=style.css.map */
