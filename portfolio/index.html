@@ -6,13 +6,57 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 	<link rel = "stylesheet" href = "css/normalize.css">
 	<link rel = "stylesheet" href = "css/style.css">
 	<link rel = "icon" href = "assets/favicon/favicon1.ico">
   <title>Portfolio</title>
 </head>
 <body>
-	
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container _container">
+				<div class="header__logo"></div>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href = "#" class = "menu__link">skills</a>
+							</li>
+							<li class="menu__item">
+								<a href = "#" class = "menu__link">portfolio</a>
+							</li>
+							<li class="menu__item">
+								<a href = "#" class = "menu__link">video</a>
+							</li>
+							<li class="menu__item">
+								<a href = "#" class = "menu__link">price</a>
+							</li>
+							<li class="menu__item">
+								<a href = "#" class = "menu__link">contacts</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="header__language language">
+					<label for="eng"> en</label>
+					<input type = "radio" id="eng" name="lang" class="language__button">
+						<span class="language__separator">/</span>
+					<label for="rus"> ru</label>
+					<input type = "radio" id="rus" name="lang" class="language__button">
+
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="page__hero hero"></section>
+			<section class="page__skills skills"></section>
+			<section class="page__portfolio portfolio"></section>
+			<section class="page__video video"></section>
+			<section class="page__price price"></section>
+			<section class="page__contacts contacts"></section>
+		</main>
+		<footer class="footer"></footer>
+	</div>
 </body>
 </html>

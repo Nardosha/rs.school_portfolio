@@ -4,7 +4,7 @@
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
-html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner{border:0;}
@@ -14,3 +14,36 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*---------------------------------------------------------------*/
+
+// Variables
+$fontSize: 18px;
+$line-height: 200%;
+$fontWeight: 400;
+$fontFamily: Inter, sans-serif;
+
+$fontColor: hsl(0, 0%, 100%);
+$bgColor: hsl(0, 0%, 0%);
+$decorColor: hsl(45, 31%, 63%);
+
+//Buttons
+$btnTextColorHover: hsl(0, 0%, 100%);
+
+//Buttons light
+$btnLightBgColor: hsl(45, 31%, 63%);
+$btnLightTextColor: hsl(0, 0%, 0%);
+//Buttons dark
+$btnDarkBgColor: hsl(0, 0%, 0%);
+$btnDarkTextColor: hsl(45, 31%, 63%);
+
+
+html,
+body {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $fontColor;
+  line-height: $line-height;
+  background-color: $bgColor;
+}
+
+
