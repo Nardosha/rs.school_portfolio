@@ -114,6 +114,7 @@ body {
   color: $fontColor;
   line-height: $lineHeight;
   background-color: $bgColor;
+  scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -127,7 +128,6 @@ body {
   margin: 0 auto;
 
 }
-
 
 /*-----------HEADER-----------*/
 .header {
@@ -156,6 +156,7 @@ body {
     font-size: $fontSizeLabel;
     line-height: 250%;
   }
+
 }
 .language {
   padding: 0 0 0 15px;
@@ -188,7 +189,13 @@ body {
     color: $fontColor;
     padding: 0 15px;
     line-height: 250%;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $decorColor;
+    }
   }
+
 }
 /*-----------PAGE-----------*/
 .page {

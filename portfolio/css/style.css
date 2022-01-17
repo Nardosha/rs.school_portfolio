@@ -83,6 +83,7 @@ body {
   color: white;
   line-height: 200%;
   background-color: black;
+  scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -145,6 +146,10 @@ body {
   color: white;
   padding: 0 15px;
   line-height: 250%;
+  transition: color 0.3s ease;
+}
+.menu__link:hover {
+  color: #beaf83;
 }
 
 /*-----------PAGE-----------*/
