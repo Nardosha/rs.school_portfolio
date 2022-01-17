@@ -21,6 +21,7 @@ $fontSizeLabel: 20px;
 $lineHeight: 200%;
 $fontWeight: 400;
 $fontFamily: Inter, sans-serif;
+$fontFamilyTitle: Merriweather, serif;
 
 $maxWidthContainer: 1400px;
 
@@ -39,6 +40,16 @@ $btnDarkBgColor: hsl(0, 0%, 0%);
 $btnDarkTextColor: hsl(45, 31%, 63%);
 
 //Mixins
+@mixin header-decor () {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 274px;
+    height: 2px;
+    background-color: $decorColor;
+  }
+
+
 %img {
   position: absolute;
   top: 0;
@@ -68,6 +79,32 @@ body {
   max-width: $maxWidthContainer;
   //padding: 0 15px;
   margin: 0 auto;
+}
+
+.skills__header-container {
+  width: 50%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.header-block {
+  position: relative;
+  font-size: 40px;
+  line-height: $lineHeight;
+  font-weight: 700;
+  font-family: $fontFamilyTitle;
+  text-align: center;
+  color: $decorColor;
+  margin: 0 0 60px 0;
+
+  &::before,&::after {
+    @include header-decor();
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
 }
 /*-----------HEADER-----------*/
 .header {
@@ -135,9 +172,12 @@ body {
   flex: 1 1 auto;
   position: relative;
   &__hero {
+  }
+  &__skills {
 
   }
 }
+
 .hero {
   &__container {
 
@@ -145,13 +185,13 @@ body {
   &__body {
     position: relative;
     max-width: 524px;
-    padding: 185px 0 330px 60px;
+    padding: 250px 0 330px 60px;
     z-index: 50;
 
 
   }
   &__title {
-    font-family: Merriweather, serif;
+    font-family: $fontFamilyTitle;
     font-size: 60px;
     font-weight: 700;
     line-height: $lineHeight;
@@ -168,6 +208,7 @@ body {
 
   &__image {
     @extend %img;
+    max-height: 910px;
 
       img {
         @extend %img;
@@ -177,7 +218,6 @@ body {
 }
 // Gold button
 .button {
-
 
   &__gold {
     display: flex;
@@ -197,6 +237,53 @@ body {
 
 }
 
+/*-----SKILLS-----*/
+.skills {
+  position: relative;
+  z-index: 5;
+  padding: 100px 0 10px 0;
 
+  &__container {}
+  &__header {}
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+  }
+  &__column {
+    flex: 0 1 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+
+    &:nth-of-type(1) {
+      background: url('../assets/img/skills/camera.svg') 50% 15% no-repeat;
+    }
+    &:nth-of-type(2) {
+      background: url('../assets/img/skills/video.svg') 50% 15% no-repeat;
+    }
+    &:nth-of-type(3) {
+      background: url('../assets/img/skills/pic.svg') 50% 15% no-repeat;
+    }
+    &:nth-of-type(4) {
+      background: url('../assets/img/skills/mic.svg') 50% 15% no-repeat;
+    }
+  }
+  &__item {}
+}
+
+.item-skills {
+  padding: 100px 20px 8px 20px;
+  text-align: center;
+
+  &__label {
+    font-size: $fontSizeLabel;
+    line-height: $lineHeight;
+    margin: 0 0 20px 0;
+  }
+  &__text {}
+}
+
+/*-----------FOOTER-----------*/
 
 .footer {}
