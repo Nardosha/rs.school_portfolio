@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*---------------------------------------------------------------*/
-.video__body img, .portfolio__image img, .hero__image img, .hero__image {
+.contacts__image img, .contacts__image, .video__body img, .portfolio__image img, .hero__image img, .hero__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -188,6 +188,7 @@ body {
   padding: 8px 72px 7px 73px;
   background-color: #beaf83;
   color: black;
+  font-size: 20px;
   min-height: 55px;
   border: none;
   transition: color 0.3s ease-in-out;
@@ -324,6 +325,7 @@ body {
   padding: 8px 72px 7px 73px;
   background-color: black;
   color: #beaf83;
+  font-size: 20px;
   min-height: 55px;
   border: 1px solid #beaf83;
   transition: color 0.3s ease-in-out;
@@ -339,6 +341,7 @@ body {
   padding: 8px 72px 7px 73px;
   background-color: #beaf83;
   color: black;
+  font-size: 20px;
   min-height: 55px;
   border: none;
   transition: color 0.3s ease-in-out;
@@ -464,11 +467,75 @@ body {
   padding: 8px 39px 7px;
   background-color: #beaf83;
   color: black;
+  font-size: 20px;
   min-height: 55px;
   border: none;
   transition: color 0.3s ease-in-out;
 }
 .item-price__button .button__gold:hover {
+  color: white;
+}
+
+/*-----Contacts-----*/
+.contacts {
+  position: relative;
+}
+.contacts__body {
+  position: relative;
+  z-index: 50;
+  display: flex;
+  padding: 60px 20px 195px 0;
+  flex-direction: column;
+  max-width: 450px;
+  margin-left: auto;
+}
+.contacts__title {
+  font-size: 40px;
+  line-height: 200%;
+  font-weight: 700;
+  font-family: Merriweather, serif;
+  color: #beaf83;
+  margin: 0 0 40px 0;
+}
+.contacts__item {
+  margin: 0 0 20px 0;
+  padding: 5px 20px;
+  color: #beaf83;
+  font-size: 20px;
+  display: flex;
+  min-height: 50px;
+  border: 1px solid #beaf83;
+  background-color: rgba(0, 0, 0, 0);
+}
+.contacts__item::placeholder {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+.contacts__image {
+  max-height: 910px;
+}
+.contacts__image img {
+  object-fit: cover;
+}
+
+.button {
+  display: flex;
+}
+.button .button__gold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 8px 39px 7px;
+  background-color: #beaf83;
+  color: black;
+  font-size: 20px;
+  min-height: 55px;
+  border: none;
+  transition: color 0.3s ease-in-out;
+}
+.button .button__gold:hover {
   color: white;
 }
 
