@@ -38,17 +38,63 @@ $btnLightTextColor: hsl(0, 0%, 0%);
 //Buttons dark
 $btnDarkBgColor: hsl(0, 0%, 0%);
 $btnDarkTextColor: hsl(45, 31%, 63%);
+$btnDarkBorder: 1px solid $decorColor;
 
 //Mixins
-@mixin header-decor () {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 274px;
-    height: 2px;
-    background-color: $decorColor;
-  }
 
+// Button
+@mixin button ($btnBgColor, $btnTextColor, $border) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 8px 72px 7px 73px;
+  background-color: $btnBgColor;
+  color: $btnTextColor;
+  min-height: 55px;
+  border: $border;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: $btnTextColorHover;
+  }
+}
+
+// Header-block
+@mixin header-block ($width) {
+  .header-block {
+    width: 50%;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+  .header-block__title {
+    position: relative;
+    font-size: 40px;
+    line-height: $lineHeight;
+    font-weight: 700;
+    font-family: $fontFamilyTitle;
+    text-align: center;
+    color: $decorColor;
+    margin: 100px 0 60px 0;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: $width;
+      height: 2px;
+      background-color: $decorColor;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}
 
 %img {
   position: absolute;
@@ -81,31 +127,7 @@ body {
   margin: 0 auto;
 }
 
-.skills__header-container {
-  width: 50%;
-  margin: 0 auto;
-  overflow-x: hidden;
-}
-.header-block {
-  position: relative;
-  font-size: 40px;
-  line-height: $lineHeight;
-  font-weight: 700;
-  font-family: $fontFamilyTitle;
-  text-align: center;
-  color: $decorColor;
-  margin: 0 0 60px 0;
 
-  &::before,&::after {
-    @include header-decor();
-  }
-  &::before {
-    left: 0;
-  }
-  &::after {
-    right: 0;
-  }
-}
 /*-----------HEADER-----------*/
 .header {
   position: absolute;
@@ -216,40 +238,31 @@ body {
       }
   }
 }
-// Gold button
 .button {
-
-  &__gold {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    padding: 8px 72px 7px 73px;
-    background-color: $btnLightBgColor;
-    color: $btnLightTextColor;
-    min-height: 55px;
-    transition: color 0.3s ease-in-out;
-
-    &:hover {
-      color: $btnTextColorHover;
-    }
+  .button__gold {
+    @include button ($btnLightBgColor, $btnLightTextColor, none);
   }
-
 }
+
 
 /*-----SKILLS-----*/
 .skills {
   position: relative;
   z-index: 5;
-  padding: 100px 0 10px 0;
+  padding: 0 0 10px 0;
 
-  &__container {}
+
+  &__container {
+    @include header-block(274px);
+  }
+
   &__header {}
   &__body {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -20px;
   }
+
   &__column {
     flex: 0 1 25%;
     display: flex;
@@ -282,6 +295,53 @@ body {
     margin: 0 0 20px 0;
   }
   &__text {}
+}
+
+/*-----PORTFOLIO-----*/
+.portfolio {
+
+  &__container {
+    @include header-block(238px);
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 0 60px 0;
+  }
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+
+  }
+  &__item {
+    flex: 0 1 33.3333%;
+    max-width: 450px;
+    position: relative;
+  }
+  &__image {
+    position: relative;
+    width: 100%;
+
+    img {
+      @extend %img;
+
+    }
+  }
+}
+.button {
+  .button__dark {
+    margin: 0 5px 0 0;
+    @include button ($btnDarkBgColor, $btnDarkTextColor, $btnDarkBorder);
+
+  }
+  .button__gold {
+    @include button ($btnLightBgColor, $btnLightTextColor, none);
+
+  }
 }
 
 /*-----------FOOTER-----------*/
