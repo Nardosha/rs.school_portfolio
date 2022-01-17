@@ -17,9 +17,12 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
 // Variables
 $fontSize: 18px;
+$fontSizeLabel: 20px;
 $line-height: 200%;
 $fontWeight: 400;
 $fontFamily: Inter, sans-serif;
+
+$maxWidthContainer: 1400px;
 
 $fontColor: hsl(0, 0%, 100%);
 $bgColor: hsl(0, 0%, 0%);
@@ -46,4 +49,82 @@ body {
   background-color: $bgColor;
 }
 
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column
+}
+._container {
+  max-width: $maxWidthContainer;
+  //padding: 0 15px;
+  margin: 0 auto;
+}
+/*-----------HEADER-----------*/
+.header {
 
+
+  &__container {
+    display: flex;
+    padding: 20px 0;
+  }
+
+  &__logo {
+    background: url(../assets/icons/logo.svg) 0 50% no-repeat;
+    min-width: 50px;
+    min-height: 40px;
+  }
+
+  &__menu {
+    margin-left: auto;
+  }
+  &__language {
+    font-size: $fontSizeLabel;
+    line-height: 250%;
+  }
+}
+.language {
+  padding: 0 0 0 15px;
+
+  &__label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $btnDarkTextColor;
+    }
+  }
+  &__button {
+    display: none;
+
+  }
+
+}
+
+.menu {
+  &__body {}
+  &__list {
+    display: flex;
+  }
+  &__item {
+
+  }
+  &__link {
+    font-size: $fontSizeLabel;
+    color: $fontColor;
+    padding: 0 15px;
+    line-height: 250%;
+  }
+}
+/*-----------PAGE-----------*/
+.page {
+  flex: 1 1 auto;
+  &__hero {
+    background: url(../assets/img/main/main_bg.jpg) 0 0/cover no-repeat;
+  }
+}
+
+
+
+
+.footer {}
