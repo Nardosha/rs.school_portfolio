@@ -31,6 +31,7 @@ $decorColor: hsl(45, 31%, 63%);
 
 //Buttons
 $btnTextColorHover: hsl(0, 0%, 100%);
+$btnPadding: 8px 72px 7px 73px;
 
 //Buttons light
 $btnLightBgColor: hsl(45, 31%, 63%);
@@ -42,13 +43,13 @@ $btnDarkBorder: 1px solid $decorColor;
 
 //Mixins
 
-// Button
-@mixin button ($btnBgColor, $btnTextColor, $border) {
+// Button (padding: 8px 72px 7px 73px;)
+@mixin button ($btnBgColor, $btnTextColor, $border, $padding) {
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
-  padding: 8px 72px 7px 73px;
+  padding: $padding;
   background-color: $btnBgColor;
   color: $btnTextColor;
   min-height: 55px;
@@ -240,7 +241,7 @@ body {
 }
 .button {
   .button__gold {
-    @include button ($btnLightBgColor, $btnLightTextColor, none);
+    @include button ($btnLightBgColor, $btnLightTextColor, none, $btnPadding);
   }
 }
 
@@ -335,11 +336,11 @@ body {
 .button {
   .button__dark {
     margin: 0 5px 0 0;
-    @include button ($btnDarkBgColor, $btnDarkTextColor, $btnDarkBorder);
+    @include button ($btnDarkBgColor, $btnDarkTextColor, $btnDarkBorder, $btnPadding);
 
   }
   .button__gold {
-    @include button ($btnLightBgColor, $btnLightTextColor, none);
+    @include button ($btnLightBgColor, $btnLightTextColor, none, $btnPadding);
 
   }
 }
@@ -348,7 +349,10 @@ body {
   &__container {
     @include header-block(273px);
   }
-  &__header {}
+
+  &__header {
+  }
+
   &__body {
     position: relative;
     width: 100%;
@@ -370,6 +374,7 @@ body {
       @extend %img;
     }
   }
+}
   //  &__button {
   //    background: url("../assets/icons/play.svg") 50% 50% no-repeat;
   //    position: absolute;
@@ -382,7 +387,64 @@ body {
   //    background-size: 130px 130px;
   //  }
   //}
+/*-----Price-----*/
+.price {
 
+  &__container {
+    @include header-block(279px);
+  }
+  &__header {}
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 0 0 100px 0;
+  }
+  &__column {
+    flex: 0 1 33.3333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border: 3px solid $decorColor;
+    max-width: 450px;
+
+  }
+  &__item {
+    text-align: center;
+    padding: 43px 42px;
+
+  }
+}
+
+.item-price {
+
+  &__label {
+    font-family: $fontFamilyTitle;
+    font-size: 28px;
+    line-height: $lineHeight;
+    margin: 0 0 20px 0;
+  }
+  &__cost {
+    color: $decorColor;
+    font-family: $fontFamilyTitle;
+    font-size: 24px;
+    margin: 0 0 20px 0;
+  }
+  &__service-list {
+    margin: 0 0 40px 0;
+  }
+  &__service-item {}
+  &__button {
+
+    .button__gold {
+      @include button ($btnLightBgColor, $btnLightTextColor, none, 8px 39px 7px );
+
+
+    }
+  }
+
+}
 /*-----------FOOTER-----------*/
 
 .footer {}
