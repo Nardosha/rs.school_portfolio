@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*---------------------------------------------------------------*/
-.portfolio__image img, .hero__image img, .hero__image {
+.video__body img, .portfolio__image img, .hero__image img, .hero__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -345,6 +345,51 @@ body {
 }
 .button .button__gold:hover {
   color: white;
+}
+
+/*-----VIDEO-----*/
+.video__container .header-block {
+  width: 50%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.video__container .header-block__title {
+  position: relative;
+  font-size: 40px;
+  line-height: 200%;
+  font-weight: 700;
+  font-family: Merriweather, serif;
+  text-align: center;
+  color: #beaf83;
+  margin: 100px 0 60px 0;
+}
+.video__container .header-block__title::before, .video__container .header-block__title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 273px;
+  height: 2px;
+  background-color: #beaf83;
+}
+.video__container .header-block__title::before {
+  left: 0;
+}
+.video__container .header-block__title::after {
+  right: 0;
+}
+.video__body {
+  position: relative;
+  width: 100%;
+  min-height: 705px;
+}
+.video__button {
+  background: url("../assets/icons/play.svg") 50% 50% no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  cursor: pointer;
+  background-size: 130px 130px;
 }
 
 /*-----------FOOTER-----------*/
