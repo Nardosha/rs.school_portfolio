@@ -4,7 +4,7 @@
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
-html,body{height:100%;width:100%;font-size:100%;line-height:1;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+html,body{height:100%;width:100%;font-size:100%;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner{border:0;}
@@ -18,7 +18,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 // Variables
 $fontSize: 18px;
 $fontSizeLabel: 20px;
-$line-height: 200%;
+$lineHeight: 200%;
 $fontWeight: 400;
 $fontFamily: Inter, sans-serif;
 
@@ -38,6 +38,15 @@ $btnLightTextColor: hsl(0, 0%, 0%);
 $btnDarkBgColor: hsl(0, 0%, 0%);
 $btnDarkTextColor: hsl(45, 31%, 63%);
 
+//Mixins
+%img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*---------------------------------------------------*/
 
 html,
 body {
@@ -45,7 +54,7 @@ body {
   font-size: $fontSize;
   font-weight: $fontWeight;
   color: $fontColor;
-  line-height: $line-height;
+  line-height: $lineHeight;
   background-color: $bgColor;
 }
 
@@ -62,11 +71,16 @@ body {
 }
 /*-----------HEADER-----------*/
 .header {
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 
   &__container {
     display: flex;
     padding: 20px 0;
+    align-items: center;
   }
 
   &__logo {
@@ -119,11 +133,69 @@ body {
 /*-----------PAGE-----------*/
 .page {
   flex: 1 1 auto;
+  position: relative;
   &__hero {
-    background: url(../assets/img/main/main_bg.jpg) 0 0/cover no-repeat;
+
   }
 }
+.hero {
+  &__container {
 
+  }
+  &__body {
+    position: relative;
+    max-width: 524px;
+    padding: 185px 0 330px 60px;
+    z-index: 50;
+
+
+  }
+  &__title {
+    font-family: Merriweather, serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: $lineHeight;
+    margin: 0 0 10px 0;
+  }
+  &__subtitle {
+    font-size: $fontSizeLabel;
+    line-height: $lineHeight;
+    margin: 0 0 25px 0;
+  }
+  &__button {
+    display: flex;
+  }
+
+  &__image {
+    @extend %img;
+
+      img {
+        @extend %img;
+        object-fit: cover;
+      }
+  }
+}
+// Gold button
+.button {
+
+
+  &__gold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 8px 72px 7px 73px;
+    background-color: $btnLightBgColor;
+    color: $btnLightTextColor;
+    min-height: 55px;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $btnTextColorHover;
+    }
+  }
+
+}
 
 
 
