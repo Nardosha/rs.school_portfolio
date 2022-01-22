@@ -94,8 +94,9 @@ body {
 }
 
 ._container {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /*-----------HEADER-----------*/
@@ -108,7 +109,7 @@ body {
 }
 .header__container {
   display: flex;
-  padding: 20px 0;
+  min-height: 90px;
   align-items: center;
 }
 .header__logo {
@@ -136,6 +137,9 @@ body {
 }
 .language__button {
   display: none;
+}
+.language__separator {
+  margin: 0 6px;
 }
 
 .menu__list {
@@ -206,7 +210,6 @@ body {
 .skills {
   position: relative;
   z-index: 5;
-  padding: 0 0 10px 0;
 }
 .skills__container .header-block {
   width: 50%;
@@ -249,16 +252,16 @@ body {
   padding: 0 20px;
 }
 .skills__column:nth-of-type(1) {
-  background: url("../assets/img/skills/camera.svg") 50% 15% no-repeat;
+  background: url("../assets/img/skills/camera.svg") 50% 0 no-repeat;
 }
 .skills__column:nth-of-type(2) {
-  background: url("../assets/img/skills/video.svg") 50% 15% no-repeat;
+  background: url("../assets/img/skills/video.svg") 50% 0 no-repeat;
 }
 .skills__column:nth-of-type(3) {
-  background: url("../assets/img/skills/pic.svg") 50% 15% no-repeat;
+  background: url("../assets/img/skills/pic.svg") 50% 0 no-repeat;
 }
 .skills__column:nth-of-type(4) {
-  background: url("../assets/img/skills/mic.svg") 50% 15% no-repeat;
+  background: url("../assets/img/skills/mic.svg") 50% 0 no-repeat;
 }
 .item-skills {
   padding: 100px 20px 8px 20px;
@@ -266,6 +269,7 @@ body {
 }
 .item-skills__label {
   font-size: 20px;
+  font-weight: 700;
   line-height: 200%;
   margin: 0 0 20px 0;
 }
@@ -327,7 +331,7 @@ body {
   align-items: center;
   justify-content: center;
   align-content: center;
-  padding: 8px 72px 7px 73px;
+  padding: 8px 79px 7px 79px;
   background-color: black;
   color: #beaf83;
   font-size: 20px;
@@ -337,6 +341,9 @@ body {
 }
 .button .button__dark:hover {
   color: white;
+}
+.button .button__dark:nth-child(3) {
+  padding: 8px 70px 7px 69px;
 }
 .button .button__gold {
   display: flex;
@@ -446,7 +453,7 @@ body {
 }
 .price__item {
   text-align: center;
-  padding: 43px 42px;
+  padding: 43px 42px 40px 42px;
 }
 
 .item-price__label {
@@ -458,6 +465,8 @@ body {
 .item-price__cost {
   color: #beaf83;
   font-family: Merriweather, serif;
+  font-weight: 700;
+  line-height: 200%;
   font-size: 24px;
   margin: 0 0 20px 0;
 }
@@ -489,14 +498,29 @@ body {
   position: relative;
   z-index: 50;
   display: flex;
-  padding: 60px 20px 195px 0;
+  padding: 60px 0 195px 0;
   flex-direction: column;
   max-width: 450px;
   margin-left: auto;
 }
-.contacts__body .item-text {
-  resize: none;
-  margin: 0 0 30px 0;
+.contacts .button {
+  display: flex;
+}
+.contacts .button .button__gold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 8px 40px 7px 40px;
+  background-color: #beaf83;
+  color: black;
+  font-size: 20px;
+  min-height: 55px;
+  border: none;
+  transition: color 0.3s ease-in-out;
+}
+.contacts .button .button__gold:hover {
+  color: white;
 }
 .contacts__title {
   font-size: 40px;
@@ -511,66 +535,76 @@ body {
   padding: 5px 20px;
   color: #beaf83;
   font-size: 20px;
+  line-height: 200%;
   display: flex;
   min-height: 50px;
-  border: 1px solid #beaf83;
-  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #beaf83;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .contacts__item::placeholder {
   font-family: inherit;
   color: inherit;
   font-size: inherit;
 }
+.contacts .item-email,
+.contacts .item-tel {
+  max-height: 50px;
+}
+.contacts .item-text {
+  resize: none;
+  margin: 0 0 30px 0;
+  min-height: 100px;
+}
 .contacts__image {
-  max-height: 910px;
+  max-height: 700px;
 }
 .contacts__image img {
   object-fit: cover;
 }
 
-.button {
-  display: flex;
-}
-.button .button__gold {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  padding: 8px 39px 7px;
-  background-color: #beaf83;
-  color: black;
-  font-size: 20px;
-  min-height: 55px;
-  border: none;
-  transition: color 0.3s ease-in-out;
-}
-.button .button__gold:hover {
-  color: white;
-}
-
 /*-----------FOOTER-----------*/
+.footer {
+  padding: 50px 0;
+}
 .footer__column {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   align-content: center;
-  min-height: 150px;
+  max-height: 150px;
+  font-size: 20px;
+  line-height: 250%;
+  padding: 0 2px;
 }
 .footer__column a {
   color: white;
-  font-size: 20px;
-  line-height: 250%;
   transition: color 0.3s ease;
 }
 .footer__column a:hover {
   color: #beaf83;
 }
-.footer__column-item {
-  margin: 0 20px 0 0;
+.footer__column-left .footer__column-item {
+  margin: 0 13px 0 0;
+}
+.footer__column-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
 }
 .footer .social__item {
-  margin: 0 0 0 20px;
+  padding: 0 2px;
+}
+.footer .social__item:not(:last-child) {
+  margin: 0 23px 0 0;
+}
+.footer .social__item img {
+  vertical-align: middle;
+}
+.footer .social__item img {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
