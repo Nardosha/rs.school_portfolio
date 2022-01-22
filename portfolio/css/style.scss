@@ -23,8 +23,8 @@ $fontWeight: 400;
 $fontWeightLabel: 700;
 $fontFamily: Inter, sans-serif;
 $fontFamilyTitle: Merriweather, serif;
-
 $maxWidthContainer: 1440px;
+$transition: all 0.3s ease;
 
 $fontColor: hsl(0, 0%, 100%);
 $bgColor: hsl(0, 0%, 0%);
@@ -42,6 +42,10 @@ $btnDarkBgColor: hsl(0, 0%, 0%);
 $btnDarkTextColor: hsl(45, 31%, 63%);
 $btnDarkBorder: 1px solid $decorColor;
 
+// Hoover svg
+$svgHoverColor: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+
+
 //Mixins
 
 // Button (padding: 8px 72px 7px 73px;)
@@ -56,14 +60,19 @@ $btnDarkBorder: 1px solid $decorColor;
   font-size: $fontSizeLabel;
   min-height: 55px;
   border: $border;
-  transition: color 0.3s ease-in-out;
+  transition: $transition;
 
   &:hover {
     color: $btnTextColorHover;
   }
 }
 
-// Header-block
+@mixin hover ($svgHoverColor) {
+  &:hover {
+    filter: $svgHoverColor;
+  }
+}
+
 @mixin header-block ($width) {
   .header-block {
     width: 50%;
@@ -98,6 +107,7 @@ $btnDarkBorder: 1px solid $decorColor;
     }
   }
 }
+
 
 %img {
   position: absolute;
@@ -148,6 +158,10 @@ body {
     background: url(../assets/icons/logo.svg) 0 50% no-repeat;
     min-width: 50px;
     min-height: 40px;
+    cursor: pointer;
+    transition: $transition;
+
+    @include hover ($svgHoverColor);
   }
 
   &__menu {
@@ -157,14 +171,16 @@ body {
     font-size: $fontSizeLabel;
     line-height: 250%;
   }
-
 }
 .language {
   padding: 0 0 0 15px;
 
+  ._active {
+    color: $btnDarkTextColor
+  }
   &__label {
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: $transition;
 
     &:hover {
       color: $btnDarkTextColor;
@@ -172,7 +188,6 @@ body {
   }
   &__button {
     display: none;
-
   }
   &__separator {
     margin: 0 6px;
@@ -193,7 +208,7 @@ body {
     color: $fontColor;
     padding: 0 15px;
     line-height: 250%;
-    transition: color 0.3s ease;
+    transition: $transition;
 
     &:hover {
       color: $decorColor;
@@ -201,6 +216,7 @@ body {
   }
 
 }
+
 /*-----------PAGE-----------*/
 .page {
   flex: 1 1 auto;
@@ -220,8 +236,7 @@ body {
     position: relative;
     max-width: 524px;
     padding: 250px 0 330px 60px;
-    z-index: 50;
-
+    z-index: 10;
 
   }
   &__title {
@@ -261,8 +276,6 @@ body {
 .skills {
   position: relative;
   z-index: 5;
-
-
 
   &__container {
     @include header-block(274px);
@@ -328,7 +341,6 @@ body {
     flex-wrap: wrap;
     align-items: center;
     gap: 25px;
-
   }
   &__item {
     flex: 0 1 33.3333%;
@@ -341,7 +353,6 @@ body {
 
     img {
       @extend %img;
-
     }
   }
 }
@@ -354,15 +365,13 @@ body {
         $btnPadding: 8px 70px 7px 69px;
         padding: $btnPadding;
       }
-
-
     }
 
   .button__gold {
     @include button ($btnLightBgColor, $btnLightTextColor, none, $btnPadding);
-
   }
 }
+
 /*-----VIDEO-----*/
 .video {
   &__container {
@@ -377,35 +386,34 @@ body {
     width: 100%;
     min-height: 705px;
 
-    &::before {
-      content: "";
-      background: url("../assets/icons/play.svg") 50% 50% no-repeat;
-      position: absolute;
-      //top: 50%;
-      //left: 50%;
-      width: 100%;
-      height: 100%;
-      z-index: 100;
-      cursor: pointer;
-    }
+  }
+  &__block {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
-      @extend %img;
+      width: 100%;
+      height: 100%;
+      //@extend %img;
+    }
+
+    .video_button {
+      background: url("../assets/icons/play.svg") 50% 50% no-repeat;
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      z-index: 100;
+      cursor: pointer;
+      transition: $transition;
+
+      @include hover ($svgHoverColor);
     }
   }
 }
-  //  &__button {
-  //    background: url("../assets/icons/play.svg") 50% 50% no-repeat;
-  //    position: absolute;
-  //    //top: 50%;
-  //    //left: 50%;
-  //    width: 100%;
-  //    height: 100%;
-  //    z-index: 100;
-  //    cursor: pointer;
-  //    background-size: 130px 130px;
-  //  }
-  //}
 /*-----Price-----*/
 .price {
 
@@ -432,7 +440,6 @@ body {
   &__item {
     text-align: center;
     padding: 43px 42px 40px 42px;
-
   }
 }
 
@@ -487,9 +494,7 @@ body {
     //input:-webkit-autofill:focus,
     //input:-webkit-autofill:active {
     //  -webkit-text-fill-color: #bdae82;
-    //  transition: background-color 0s ease-in-out 9000s;
     }
-
 
   .button {
     display: flex;
@@ -544,7 +549,6 @@ body {
   }
 }
 
-
 /*-----------FOOTER-----------*/
 .footer {
   padding: 50px 0;
@@ -565,7 +569,7 @@ body {
       color: $fontColor;
       //font-size: $fontSizeLabel;
       //line-height: 250%;
-      transition: color 0.3s ease;
+      transition: $transition;
     }
     a:hover {
       color: $decorColor;
@@ -589,20 +593,15 @@ body {
 
   .social__item {
     padding: 0 2px;
+
     &:not(:last-child) {
       margin: 0 23px 0 0;
     }
 
+    @include hover ($svgHoverColor);
+
     img {
       vertical-align: middle;
-    }
-
-    &:last-child {
-      //margin: 0 2px 0 0;
-    }
-
-    img {
-      text-align: center;
     }
   }
 }
