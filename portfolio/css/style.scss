@@ -383,9 +383,8 @@ body {
   .skills {
 
     &__container {
+      @include header-blockMiddle(117px);
     }
-
-    @include header-blockMiddle(117px);
 
     .header-block__title {
       line-height: 125%;
@@ -410,9 +409,11 @@ body {
       }
       &:nth-of-type(3) {
         background: url('../assets/img/skills/pic.svg') 50% 5% no-repeat;
+        margin: 0 0 20px 0;
       }
       &:nth-of-type(4) {
         background: url('../assets/img/skills/mic.svg') 50% 5% no-repeat;
+        margin: 0 0 20px 0;
       }
     }
 
@@ -441,6 +442,7 @@ body {
   }
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -478,7 +480,34 @@ body {
     }
 
   .button__gold {
-    @include button ($btnLightBgColor, $btnLightTextColor, none, $btnPadding);
+    @include button ($btnLightBgColor, $btnLightTextColor, none, 8px 73px 7px 73px);
+  }
+}
+/*---Адаптив---*/
+@media (max-width: $middle) {
+  .portfolio {
+
+    &__container {
+      @include header-blockMiddle(90px);
+    }
+    &__buttons {
+      //max-width: 445px;
+      display: grid;
+      grid-template-columns: 220px 220px;
+      grid-auto-rows: 54px 54px;
+      gap: 5px;
+      margin: 0 auto 60px;
+
+      .button__dark {
+        margin: 0;
+      }
+    }
+    &__body {
+      justify-content: center;
+    }
+    &__item {
+      flex: 0 1 100%;
+    }
   }
 }
 
