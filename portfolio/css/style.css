@@ -87,6 +87,10 @@ body {
   scroll-behavior: smooth;
 }
 
+body._lock {
+  overflow: hidden;
+}
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
@@ -156,6 +160,9 @@ body {
   margin: 0 6px;
 }
 
+.menu__icon {
+  display: none;
+}
 .menu__list {
   display: flex;
 }
@@ -170,6 +177,89 @@ body {
   color: #beaf83;
 }
 
+/*---Адаптив---*/
+@media (max-width: 768px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .header__container {
+    justify-content: flex-end;
+  }
+  .header__logo {
+    order: -1;
+  }
+  .header__menu {
+    order: 1;
+  }
+  .header__language {
+    flex: 1 1 auto;
+    text-align: right;
+    margin: 0 20px 0 0;
+  }
+
+  .menu__body {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    transition: right 0.6s ease-in-out;
+    background-color: black;
+    padding: 90px 20px 20px 20px;
+    overflow: auto;
+  }
+  .menu__body._active {
+    right: 0;
+  }
+  .menu__body .menu__list {
+    display: block;
+  }
+  .menu__icon {
+    position: relative;
+    z-index: 25;
+    display: block;
+    width: 50px;
+    height: 28px;
+    cursor: pointer;
+  }
+  .menu__icon span, .menu__icon::before, .menu__icon::after {
+    position: absolute;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+  .menu__icon::before, .menu__icon::after {
+    content: "";
+  }
+  .menu__icon span {
+    top: 50%;
+    transform: translate(0, -50%) scale(1);
+  }
+  .menu__icon::before {
+    top: 0;
+  }
+  .menu__icon::after {
+    bottom: 0;
+  }
+  .menu__icon._active span {
+    transform: translate(0, -50%) scale(0);
+  }
+  .menu__icon._active::before {
+    top: 50%;
+    transform: translate(0, -50%) rotate(-135deg);
+  }
+  .menu__icon._active::after {
+    bottom: 50%;
+    transform: translate(0, 50%) rotate(135deg);
+  }
+}
 /*------------------------------------------------PAGE----------------------------------------------*/
 .page {
   flex: 1 1 auto;
@@ -524,7 +614,7 @@ body {
   position: absolute;
   width: 130px;
   height: 130px;
-  z-index: 100;
+  z-index: 5;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -563,7 +653,7 @@ body {
     position: absolute;
     width: 65px;
     height: 65px;
-    z-index: 100;
+    z-index: 5;
     cursor: pointer;
     background-size: cover;
     transition: all 0.3s ease;
@@ -693,7 +783,7 @@ body {
 }
 .contacts__body {
   position: relative;
-  z-index: 50;
+  z-index: 5;
   display: flex;
   padding: 60px 0 195px 0;
   flex-direction: column;
