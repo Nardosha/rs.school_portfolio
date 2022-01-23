@@ -403,6 +403,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 25px;
 }
 .portfolio__item {
@@ -473,9 +474,6 @@ body {
   }
   .portfolio__buttons .button__dark {
     margin: 0;
-  }
-  .portfolio__body {
-    justify-content: center;
   }
   .portfolio__item {
     flex: 0 1 100%;
