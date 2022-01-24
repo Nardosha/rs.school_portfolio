@@ -24,6 +24,7 @@ $lineHeightLabelMiddle: 250%;
 //Buttons
 $btnTextColorHover: hsl(0, 0%, 100%);
 $btnPadding: 8px 72px 7px 73px;
+$btnPaddingSmall: 5px 50px 6px 50px;
 
 //Buttons light
 $btnLightBgColor: hsl(45, 31%, 63%);
@@ -38,7 +39,7 @@ $svgHoverColor: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightnes
 
 // Adaptive
 $middle: 768px;
-$small: 320px;
+$small: 425px;
 
 
 //Mixins
@@ -61,6 +62,24 @@ $small: 320px;
     color: $btnTextColorHover;
   }
 }
+@mixin buttonSmall ($btnBgColor, $btnTextColor, $border, $padding)  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: $padding;
+  background-color: $btnBgColor;
+  color: $btnTextColor;
+  font-size: 15px;
+  min-height: 40px;
+  border: $border;
+  transition: $transition;
+
+  &:hover {
+    color: $btnTextColorHover;
+  }
+}
+
 
 @mixin hover ($svgHoverColor) {
   &:hover {
@@ -118,6 +137,23 @@ $small: 320px;
   }
 }
 
+@mixin header-blockSmall ($width) {
+  .header-block {
+    width: 100%;
+  }
+  .header-block__title {
+    font-size: 25px;
+    line-height: $lineHeightLabelMiddle;
+    margin: 40px 0 15px 0;
+
+    &::before, &::after {
+      width: $width;
+      height: 1px;
+    }
+  }
+}
+
+
 %img {
   position: absolute;
   top: 0;
@@ -138,13 +174,16 @@ body {
 }
 body._lock {
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .wrapper {
   min-height: 100%;
   overflow: hidden;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+
 }
 ._container {
   max-width: $maxWidthContainer;
@@ -153,6 +192,9 @@ body._lock {
 
   @media (max-width: $middle) {
     padding: 0 60px;
+  }
+  @media (max-width: $small) {
+    padding: 0 15px;
   }
 }
 
@@ -260,9 +302,15 @@ body._lock {
     &__language {
       flex: 1 1 auto;
       text-align: right;
-      margin: 0 20px 0 0;
+      margin: 0 26px 0 0;
+
+      .language__separator {
+        margin: 0 14px 0 4px;
+      }
     }
   }
+
+      /*---Menu burger---*/
   .menu {
 
     &__body {
@@ -272,19 +320,25 @@ body._lock {
       right: -100%;
       width: 80%;
       height: 100%;
-      transition: right 0.6s ease-in-out;
+      box-shadow: none;
+      transition: right 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
       background-color: rgba(0, 0, 0, 1);
-      padding: 90px 20px 20px 20px;
+      padding: 127px 20px 20px 107px;
       overflow: auto;
 
       &._active {
         right: 0;
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
       }
 
       .menu__list {
         display: block;
       }
     }
+    &__link {
+      font-size: 35px;
+    }
+
     &__icon {
       position: relative;
       z-index: 25;
@@ -337,6 +391,76 @@ body._lock {
           bottom: 50%;
           transform: translate(0, 50%) rotate(135deg);
         }
+      }
+
+    }
+  }
+}
+@media (max-width: 619px) {
+  .header {
+    &__body {
+
+      &._active {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: $small) {
+  .header {
+    &__container {
+        min-height: 60px;
+    }
+
+    &__logo {
+      min-width: 30px;
+      min-height: 25px;
+      background-size: cover;
+
+    }
+
+      &__language {
+        margin: 0 26px 0 0;
+        font-size: 15px;
+
+
+      .language__separator {
+        margin: 0 4px 0 4px;
+      }
+    }
+  }
+  /*---Menu burger---*/
+  .menu {
+
+    &__body {
+      padding: 60px 20px 20px 30px;
+
+      &._active {
+        right: 0;
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+      }
+
+      .menu__list {
+        display: block;
+      }
+    }
+    &__link {
+      font-size: 20px;
+    }
+
+    &__icon {
+      width: 25px;
+      height: 13px;
+
+      span,
+      &::before,
+      &::after {
+        height: 1px;
+      }
+
+      &::before,
+      &::after {
+        content: "";
       }
 
     }
@@ -416,6 +540,36 @@ body._lock {
       font-size: $fontSizeLabel;
       line-height: 125%;
       margin: 0 0 55px 0;
+    }
+  }
+}
+@media (max-width: $small) {
+  .hero {
+    background-size: auto 560px;
+    background-position: -200px -30px;
+
+    &__body {
+      padding: 142px 0 120px 0;
+      max-width: 245px;
+
+      .button__gold {
+        @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall)
+
+      }
+    }
+
+    &__title {
+      line-height: $lineHeight;
+      font-size: 30px;
+      margin: 0 0 10px 0;
+    }
+    &__subtitle {
+      font-size: 16px;
+      line-height: 125%;
+      margin: 0 0 30px 0;
+    }
+    &__button {
+
     }
   }
 }
@@ -527,6 +681,65 @@ body._lock {
     }
   }
 }
+@media (max-width: $small) {
+  .skills {
+
+    &__container {
+      @include header-blockSmall(120px);
+    }
+
+    &__body {
+      margin: 0 -22px;
+      padding: 20px 0 0 0;
+      justify-content: center;
+
+    }
+
+    &__column {
+      flex: 0 1 100%;
+      margin: 0 0 40px 0;
+      padding: 0 20px;
+      max-width: 350px;
+
+      &:nth-of-type(1) {
+        background: url('../assets/img/skills/camera.svg') 50% 5% no-repeat;
+        background-size: 50px 40px;
+
+      }
+      &:nth-of-type(2) {
+        background: url('../assets/img/skills/video.svg') 50% 5% no-repeat;
+        background-size: 50px 40px;
+
+      }
+      &:nth-of-type(3) {
+        background: url('../assets/img/skills/pic.svg') 50% 5% no-repeat;
+        background-size: 50px 40px;
+
+      }
+      &:nth-of-type(4) {
+        background: url('../assets/img/skills/mic.svg') 50% 5% no-repeat;
+        background-size: 50px 40px;
+
+      }
+    }
+
+    .item-skills {
+      padding: 70px 10px 10px 10px;
+
+
+      &__label {
+        font-size: $fontSizeLabel;
+        font-weight: $fontWeightLabel;
+        line-height: $lineHeight;
+        margin: 0 0 10px 0;
+      }
+      &__text {
+        line-height: 125%;
+        font-size: 15px;
+      }
+    }
+  }
+}
 
 /*-------------------------PORTFOLIO-------------------------*/
 .portfolio {
@@ -603,7 +816,43 @@ body._lock {
     }
   }
 }
+@media (max-width: $small) {
+  .portfolio {
 
+    &__container {
+      @include header-blockSmall(110px);
+    }
+    &__buttons {
+
+      display: grid;
+      grid-template-columns: 155px 155px;
+      grid-auto-rows: 40px 40px;
+      gap: 5px;
+      margin: 0 auto 60px;
+
+      .button {
+
+        .button__dark {
+
+          @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall);
+
+        }
+
+        .button__gold {
+          @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall);
+        }
+      }
+
+      //.button__dark {
+      //  margin: 0;
+      //}
+    }
+
+    &__item {
+      flex: 0 1 100%;
+    }
+  }
+}
 /*---------------------------VIDEO---------------------------*/
 .video {
   &__container {
@@ -684,7 +933,27 @@ body._lock {
     }
   }
 }
+@media (max-width: $small) {
+  .video {
+    &__container {
+      @include header-blockSmall(120px)
+    }
+    &__block {
+      padding: 0;
+      max-height: 250px;
+      object-position: center;
 
+      img {
+        min-height: 250px;
+        object-fit: contain;
+      }
+      .video_button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
 /*---------------------------Price---------------------------*/
 .price {
 
@@ -768,7 +1037,29 @@ body._lock {
     }
   }
 }
+@media (max-width: $small) {
+  .price {
 
+    &__container {
+      @include header-blockSmall(121px);
+    }
+
+    &__body {
+      gap: 0;
+      padding: 0;
+      margin: 0 0 30px 0;
+    }
+    &__column {
+      flex: 0 1 100%;
+      max-width: 420px;
+
+    }
+    &__item {
+      text-align: center;
+      padding: 43px 42px 40px 42px;
+    }
+  }
+}
 /*--------------------------Contacts--------------------------*/
 .contacts {
   position: relative;
