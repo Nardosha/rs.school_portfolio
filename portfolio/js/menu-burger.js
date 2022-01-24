@@ -7,6 +7,7 @@ if (menuBurger) {
 		document.body.classList.toggle('_lock')
 		menuBurger.classList.toggle('_active')
 		menuBody.classList.toggle('_active')
+		menuBody.classList.toggle('_shadow')
 	})
 	menuBody.addEventListener('click', closeMenu)
 }
