@@ -89,6 +89,7 @@ body {
 
 body._lock {
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .wrapper {
@@ -96,6 +97,7 @@ body._lock {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 ._container {
@@ -106,6 +108,11 @@ body._lock {
 @media (max-width: 768px) {
   ._container {
     padding: 0 60px;
+  }
+}
+@media (max-width: 425px) {
+  ._container {
+    padding: 0 15px;
   }
 }
 
@@ -198,9 +205,13 @@ body._lock {
   .header__language {
     flex: 1 1 auto;
     text-align: right;
-    margin: 0 20px 0 0;
+    margin: 0 26px 0 0;
+  }
+  .header__language .language__separator {
+    margin: 0 14px 0 4px;
   }
 
+  /*---Menu burger---*/
   .menu__body {
     position: fixed;
     z-index: 20;
@@ -208,16 +219,21 @@ body._lock {
     right: -100%;
     width: 80%;
     height: 100%;
-    transition: right 0.6s ease-in-out;
+    box-shadow: none;
+    transition: right 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
     background-color: black;
-    padding: 90px 20px 20px 20px;
+    padding: 127px 20px 20px 107px;
     overflow: auto;
   }
   .menu__body._active {
     right: 0;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
   }
   .menu__body .menu__list {
     display: block;
+  }
+  .menu__link {
+    font-size: 35px;
   }
   .menu__icon {
     position: relative;
@@ -258,6 +274,53 @@ body._lock {
   .menu__icon._active::after {
     bottom: 50%;
     transform: translate(0, 50%) rotate(135deg);
+  }
+}
+@media (max-width: 619px) {
+  .header__body._active {
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  .header__container {
+    min-height: 60px;
+  }
+  .header__logo {
+    min-width: 30px;
+    min-height: 25px;
+    background-size: cover;
+  }
+  .header__language {
+    margin: 0 26px 0 0;
+    font-size: 15px;
+  }
+  .header__language .language__separator {
+    margin: 0 4px 0 4px;
+  }
+
+  /*---Menu burger---*/
+  .menu__body {
+    padding: 60px 20px 20px 30px;
+  }
+  .menu__body._active {
+    right: 0;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+  }
+  .menu__body .menu__list {
+    display: block;
+  }
+  .menu__link {
+    font-size: 20px;
+  }
+  .menu__icon {
+    width: 25px;
+    height: 13px;
+  }
+  .menu__icon span, .menu__icon::before, .menu__icon::after {
+    height: 1px;
+  }
+  .menu__icon::before, .menu__icon::after {
+    content: "";
   }
 }
 /*------------------------------------------------PAGE----------------------------------------------*/
@@ -325,6 +388,42 @@ body._lock {
     font-size: 20px;
     line-height: 125%;
     margin: 0 0 55px 0;
+  }
+}
+@media (max-width: 425px) {
+  .hero {
+    background-size: auto 560px;
+    background-position: -200px -30px;
+  }
+  .hero__body {
+    padding: 142px 0 120px 0;
+    max-width: 245px;
+  }
+  .hero__body .button__gold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 5px 50px 6px 50px;
+    background-color: #beaf83;
+    color: black;
+    font-size: 15px;
+    min-height: 40px;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .hero__body .button__gold:hover {
+    color: white;
+  }
+  .hero__title {
+    line-height: 200%;
+    font-size: 30px;
+    margin: 0 0 10px 0;
+  }
+  .hero__subtitle {
+    font-size: 16px;
+    line-height: 125%;
+    margin: 0 0 30px 0;
   }
 }
 /*---------------------------SKILLS--------------------------*/
@@ -448,6 +547,60 @@ body._lock {
     line-height: 125%;
   }
 }
+@media (max-width: 425px) {
+  .skills__container .header-block {
+    width: 100%;
+  }
+  .skills__container .header-block__title {
+    font-size: 25px;
+    line-height: 250%;
+    margin: 40px 0 15px 0;
+  }
+  .skills__container .header-block__title::before, .skills__container .header-block__title::after {
+    width: 120px;
+    height: 1px;
+  }
+  .skills__body {
+    margin: 0 -22px;
+    padding: 20px 0 0 0;
+    justify-content: center;
+  }
+  .skills__column {
+    flex: 0 1 100%;
+    margin: 0 0 40px 0;
+    padding: 0 20px;
+    max-width: 350px;
+  }
+  .skills__column:nth-of-type(1) {
+    background: url("../assets/img/skills/camera.svg") 50% 5% no-repeat;
+    background-size: 50px 40px;
+  }
+  .skills__column:nth-of-type(2) {
+    background: url("../assets/img/skills/video.svg") 50% 5% no-repeat;
+    background-size: 50px 40px;
+  }
+  .skills__column:nth-of-type(3) {
+    background: url("../assets/img/skills/pic.svg") 50% 5% no-repeat;
+    background-size: 50px 40px;
+  }
+  .skills__column:nth-of-type(4) {
+    background: url("../assets/img/skills/mic.svg") 50% 5% no-repeat;
+    background-size: 50px 40px;
+  }
+  .skills .item-skills {
+    padding: 70px 10px 10px 10px;
+  }
+  .skills .item-skills__label {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 200%;
+    margin: 0 0 10px 0;
+  }
+  .skills .item-skills__text {
+    line-height: 125%;
+    font-size: 15px;
+  }
+}
 /*-------------------------PORTFOLIO-------------------------*/
 .portfolio__container .header-block {
   width: 50%;
@@ -566,6 +719,62 @@ body._lock {
     flex: 0 1 100%;
   }
 }
+@media (max-width: 425px) {
+  .portfolio__container .header-block {
+    width: 100%;
+  }
+  .portfolio__container .header-block__title {
+    font-size: 25px;
+    line-height: 250%;
+    margin: 40px 0 15px 0;
+  }
+  .portfolio__container .header-block__title::before, .portfolio__container .header-block__title::after {
+    width: 110px;
+    height: 1px;
+  }
+  .portfolio__buttons {
+    display: grid;
+    grid-template-columns: 155px 155px;
+    grid-auto-rows: 40px 40px;
+    gap: 5px;
+    margin: 0 auto 60px;
+  }
+  .portfolio__buttons .button .button__dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 5px 50px 6px 50px;
+    background-color: #beaf83;
+    color: black;
+    font-size: 15px;
+    min-height: 40px;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .portfolio__buttons .button .button__dark:hover {
+    color: white;
+  }
+  .portfolio__buttons .button .button__gold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 5px 50px 6px 50px;
+    background-color: #beaf83;
+    color: black;
+    font-size: 15px;
+    min-height: 40px;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .portfolio__buttons .button .button__gold:hover {
+    color: white;
+  }
+  .portfolio__item {
+    flex: 0 1 100%;
+  }
+}
 /*---------------------------VIDEO---------------------------*/
 .video__container .header-block {
   width: 50%;
@@ -660,6 +869,33 @@ body._lock {
   }
   .video__block .video_button:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+}
+@media (max-width: 425px) {
+  .video__container .header-block {
+    width: 100%;
+  }
+  .video__container .header-block__title {
+    font-size: 25px;
+    line-height: 250%;
+    margin: 40px 0 15px 0;
+  }
+  .video__container .header-block__title::before, .video__container .header-block__title::after {
+    width: 120px;
+    height: 1px;
+  }
+  .video__block {
+    padding: 0;
+    max-height: 250px;
+    object-position: center;
+  }
+  .video__block img {
+    min-height: 250px;
+    object-fit: contain;
+  }
+  .video__block .video_button {
+    width: 40px;
+    height: 40px;
   }
 }
 /*---------------------------Price---------------------------*/
@@ -762,6 +998,33 @@ body._lock {
   }
   .price__container .header-block__title::before, .price__container .header-block__title::after {
     width: 121px;
+  }
+  .price__body {
+    gap: 0;
+    padding: 0;
+    margin: 0 0 30px 0;
+  }
+  .price__column {
+    flex: 0 1 100%;
+    max-width: 420px;
+  }
+  .price__item {
+    text-align: center;
+    padding: 43px 42px 40px 42px;
+  }
+}
+@media (max-width: 425px) {
+  .price__container .header-block {
+    width: 100%;
+  }
+  .price__container .header-block__title {
+    font-size: 25px;
+    line-height: 250%;
+    margin: 40px 0 15px 0;
+  }
+  .price__container .header-block__title::before, .price__container .header-block__title::after {
+    width: 121px;
+    height: 1px;
   }
   .price__body {
     gap: 0;
