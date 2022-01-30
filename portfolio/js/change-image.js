@@ -3,12 +3,16 @@ const portfolioBtns = document.querySelectorAll('.btn-portfolio')
 const portfolioImages = document.querySelectorAll('.portfolio__image')
 const seasons = ['winter', 'spring', 'summer', 'autumn']
 
-if (portfolioBtnContainer) {
-	portfolioBtnContainer.addEventListener('click', function(e) {
-		changeImage(e)
-		removeClassActive()
-		addClassActive(e)
-	})
+changeActiveClass()
+
+function changeActiveClass() {
+	if (portfolioBtnContainer) {
+		portfolioBtnContainer.addEventListener('click', function(e) {
+			changeImage(e)
+			removeClassActive()
+			addClassActive(e)
+		})
+	}
 }
 
 function addClassActive(el) {
