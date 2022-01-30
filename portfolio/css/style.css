@@ -691,6 +691,22 @@ body._lock {
 .button .button__gold:hover {
   color: white;
 }
+.button ._active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 8px 73px 7px 73px;
+  background-color: #beaf83;
+  color: black;
+  font-size: 20px;
+  min-height: 55px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.button ._active:hover {
+  color: white;
+}
 
 /*---Адаптив---*/
 @media (max-width: 768px) {

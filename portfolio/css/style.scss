@@ -790,6 +790,10 @@ body._lock {
   .button__gold {
     @include button ($btnLightBgColor, $btnLightTextColor, none, 8px 73px 7px 73px);
   }
+
+  ._active {
+    @include button ($btnLightBgColor, $btnLightTextColor, none, 8px 73px 7px 73px);
+  }
 }
 /*---Адаптив---*/
 @media (max-width: $middle) {
