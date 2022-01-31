@@ -26,28 +26,28 @@
 					<nav class="menu__body">
 						<ul class="menu__list">
 							<li class="menu__item">
-								<a href = "#skills" class = "menu__link">Skills</a>
+								<a href = "#skills" class = "menu__link" data-i18n="skills">Skills</a>
 							</li>
 							<li class="menu__item">
-								<a href = "#portfolio" class = "menu__link">Portfolio</a>
+								<a href = "#portfolio" class = "menu__link" data-i18n="portfolio">Portfolio</a>
 							</li>
 							<li class="menu__item">
-								<a href = "#video" class = "menu__link">Video</a>
+								<a href = "#video" class = "menu__link" data-i18n="video">Video</a>
 							</li>
 							<li class="menu__item">
-								<a href = "#price" class = "menu__link">Price</a>
+								<a href = "#price" class = "menu__link" data-i18n="price">Price</a>
 							</li>
 							<li class="menu__item">
-								<a href = "#contacts" class = "menu__link">Contacts</a>
+								<a href = "#contacts" class = "menu__link" data-i18n="contacts">Contacts</a>
 							</li>
 						</ul>
 					</nav>
 				</div>
 				<div class="header__language language">
-					<label for="eng" class="language__label _active"> en</label>
+					<label for="eng" class="language__label" data-i18n="en"> en</label>
 					<input type = "radio" id="eng" name="lang" class="language__button">
 						<span class="language__separator">/</span>
-					<label for="rus" class="language__label"> ru</label>
+					<label for="rus" class="language__label" data-i18n="ru"> ru</label>
 					<input type = "radio" id="rus" name="lang" class="language__button">
 
 				</div>
@@ -57,17 +57,17 @@
 			<section class="page__hero hero">
 				<div class="hero__container _container">
 					<div class="hero__body">
-						<h1 class="hero__title">Alexa Rise</h1>
-						<div class="hero__subtitle">Save sincere emotions, romantic feelings and happy moments of life
+						<h1 class="hero__title" data-i18n="hero-title">Alexa Rise</h1>
+						<div class="hero__subtitle" data-i18n="hero-text">Save sincere emotions, romantic feelings and happy moments of life
 							together with professional photographer Alexa Rise</div>
-						<button class="hero__button button__gold">Hire me</button>
+						<button class="hero__button button__gold" data-i18n="hire">Hire me</button>
 					</div>
 				</div>
 			</section>
 			<section id="skills" class="page__skills skills">
 				<div class="skills__container _container">
 					<div class="skills__header header-block">
-						<h2 class="header-block__title">Skills</h2>
+						<h2 class="header-block__title" data-i18n="skills">Skills</h2>
 					</div>
 					<div class="skills__body">
 						<div class="skills__column">
@@ -119,34 +119,34 @@
 						<h2 class="header-block__title">Portfolio</h2>
 					</div>
 					<div class="portfolio__buttons button">
-						<button class = "button__dark">Winter</button>
-						<button class = "button__dark">Spring</button>
-						<button class = "button__dark">Summer</button>
-						<button class = "button__gold">Autumn</button>
+						<button class = "button__dark btn-portfolio" data-season="winter">Winter</button>
+						<button class = "button__dark btn-portfolio" data-season="spring">Spring</button>
+						<button class = "button__dark btn-portfolio" data-season="summer">Summer</button>
+						<button class = "button__dark btn-portfolio" data-season="autumn">Autumn</button>
 					</div>
 					<div class="portfolio__body">
 						<div class="portfolio__item">
-							<img src = "assets/img/portfolio/portfolio_1.jpg" alt = "picture 1" class =
+							<img src = "assets/img/portfolio/autumn/1.jpg" alt = "picture 1" class =
 									"portfolio__image">
 							</div>
 						<div class="portfolio__item">
-							<img src = "assets/img/portfolio/portfolio_2.jpg" alt = "picture 2" class =
+							<img src = "assets/img/portfolio/autumn/2.jpg" alt = "picture 2" class =
 								"portfolio__image">
 						</div>
 						<div class="portfolio__item">
-							<img src = "assets/img/portfolio/portfolio_3.jpg" alt = "picture 3" class =
+							<img src = "assets/img/portfolio/autumn/3.jpg" alt = "picture 3" class =
 								"portfolio__image">
 						</div>
 						<div class="portfolio__item">
-							<img src = "assets/img/portfolio/portfolio_4.jpg" alt = "picture 4" class =
+							<img src = "assets/img/portfolio/autumn/4.jpg" alt = "picture 4" class =
 								"portfolio__image">
 						</div>
 						<div class="portfolio__item">
-							<img src = "assets/img/portfolio/portfolio_5.jpg" alt = "picture 5" class =
+							<img src = "assets/img/portfolio/autumn/5.jpg" alt = "picture 5" class =
 								"portfolio__image">
 						</div>
 						<div class="portfolio__item">
-							<img src = "assets/img/portfolio/portfolio_6.jpg" alt = "picture 6" class =
+							<img src = "assets/img/portfolio/autumn/6.jpg" alt = "picture 6" class =
 								"portfolio__image">
 						</div>
 					</div>
@@ -227,7 +227,7 @@
 
 						<label for = "text"></label>
 						<textarea name = "text" id = "text" cols = "30" class = "contacts__item item-text"
-								  placeholder="Message"></textarea>
+								  placeholder="Message" data-i18n="message"></textarea>
 
 						<button class="contacts__button button__gold">Send message</button>
 					</div>
@@ -275,7 +275,9 @@
 			</div>
 		</footer>
 	</div>
-<script src = "js/script.js"></script>
-<script src = "js/menu-burger.js"></script>
+<script type="module" src="js/index.js"></script>
+<!-- <script src="js/change-image.js"></script> -->
+
+<!-- <script src = "js/translate.js"></script> -->
 </body>
 </html>
