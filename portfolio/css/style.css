@@ -834,7 +834,7 @@ body._lock {
   width: 100%;
   height: 100%;
 }
-.video__block .video_button {
+.video__block .video-controls__button {
   background: url("../assets/icons/play.svg") 50% 50% no-repeat;
   position: absolute;
   width: 130px;
@@ -843,7 +843,7 @@ body._lock {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.video__block .video_button:hover {
+.video__block .video-controls__button:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
@@ -873,7 +873,7 @@ body._lock {
     object-fit: cover;
     object-position: left;
   }
-  .video__block .video_button {
+  .video__block .video-controls__button {
     background: url("../assets/icons/play.svg") 50% 50% no-repeat;
     position: absolute;
     width: 65px;
@@ -883,7 +883,7 @@ body._lock {
     background-size: cover;
     transition: all 0.3s ease;
   }
-  .video__block .video_button:hover {
+  .video__block .video-controls__button:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   }
 }
@@ -909,7 +909,7 @@ body._lock {
     min-height: 250px;
     object-fit: contain;
   }
-  .video__block .video_button {
+  .video__block .video-controls__button {
     width: 40px;
     height: 40px;
   }
