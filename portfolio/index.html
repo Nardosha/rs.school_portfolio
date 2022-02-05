@@ -152,28 +152,35 @@
 					<div class = "video__header header-block">
 						<h2 class = "header-block__title">Video</h2>
 					</div>
-				</div>
-				<div class = "video__block">
-					<video class = "video__player"
-						   src = "assets/file-storage-custom-video/assets/video/video.mp4"
-						   poster = "assets/img/video/video_preview_middle.jpg" controls>
-					</video>
-							<div class="video__controls video-controls">
-								<div class="video-controls__progress">
-									<div class="video-controls__progress-filled"></div>
-								</div>
-								<button class = "video-controls__button" title = "Toggle Play"></button>
-								<input type = "range" name = "volume" class = "video-controls__slider"
-								min = "0" max = "1" step = "0.05" value = "1">
-								<input type = "range" name = "playbackRate" class = "video-controls__slider"
-									   min = "0" max = "2" step = "0.1" value = "1">
-								<button data-skip="-10" class = "video-controls__button" title = "Toggle Play">« 10s
-								</button>
-								<button data-skip="25" class = "video-controls__button" title = "Toggle Play">25s »
-								</button>
-							</div>
 
-						</div>
+				<div class = "video__block">
+					<div class="video__poster"></div>
+					<div class="video__player">
+						<video class = "video__viewer"
+							   src = "assets/file-storage-custom-video/assets/video/video.mp4">
+					</video>
+					<button class="video__button-custom">
+						<img src = "assets/icons/play-btn.svg" alt = "play" draggable="false">
+					</button>
+					</div>
+					<div class="video__controls video-controls">
+								<button class = "video-controls__button toggle" title = "Toggle Play">
+									<img src = "assets/icons/play.svg" alt = "play">
+								</button>
+<!--								<div class="video-controls__progress">-->
+<!--									<div class="video-controls__progress-filled"></div>-->
+<!--								</div>-->
+								<input type = "range" name = "progress" class = "video-controls__slider progress"
+							   min = "0" max = "100" step = "1" value = "0">
+								<button class = "video-controls__button mute" title = "Toggle Play">
+									<img src = "assets/icons/volume.svg" alt = "play">
+								</button>
+								<input type = "range" name = "volume" class = "video-controls__slider volume"
+								min = "0" max = "1" step = "0.1" value = "1">
+					</div>
+
+				</div>
+					</div>
 			</section>
 			<section id = "price" class = "page__price price">
 				<div class = "price__container _container">
@@ -288,8 +295,5 @@
 		</footer>
 	</div>
 <script type = "module" src = "js/index.js"></script>
-	<!-- <script src="js/change-image.js"></script> -->
-
-	<!-- <script src = "js/translate.js"></script> -->
 </body>
 </html>
