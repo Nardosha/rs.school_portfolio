@@ -15,10 +15,8 @@ video.addEventListener('click', updatePlayBtn)
 video.addEventListener('play', updatePlayBtn)
 video.addEventListener('pause', updatePlayBtn)
 video.addEventListener('timeupdate', time)
-// progress.addEventListener('input', time)
 
 customBtn.addEventListener('click', playVideo)
-
 toggleBtn.addEventListener('click', playVideo)
 muteBtn.addEventListener('click', updateMuteBtn)
 volumeBtn.addEventListener('input', updateVolume)
@@ -38,8 +36,8 @@ function startVideo() {
 
 function hidePoster() {
 	videoPoster.style.opacity = '0'
-	videoPoster.style.display = 'none'
 	videoPoster.style.pointerEvents = 'none'
+	videoPoster.style.zIndex = '0'
 }
 
 function playVideo() {
@@ -63,14 +61,6 @@ function scrub(e) {
 }
 
 function changeCustomBtn() {
-	// if (video.paused) {
-	// 	customBtn.style.opacity = '1'
-	// 	customBtn.style.display = 'block'
-	//
-	// } else {
-	// 	customBtn.style.opacity = '0'
-	// 	customBtn.style.display = 'none'
-	// }
 	customBtn.classList.toggle('_active')
 }
 function updatePlayBtn() {
