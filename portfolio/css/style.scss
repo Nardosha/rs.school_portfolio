@@ -81,47 +81,11 @@ $small: 425px;
   }
 }
 
-
 @mixin hover($svgHoverColor) {
   &:hover {
     filter: $svgHoverColor;
   }
 }
-
-//@mixin header-block($width) {
-//  .header-block {
-//    width: 50%;
-//    margin: 0 auto;
-//    overflow-x: hidden;
-//  }
-//  .header-block__title {
-//    position: relative;
-//    font-size: $fontSizeTitle;
-//    line-height: $lineHeight;
-//    font-weight: $fontWeightLabel;
-//    font-family: $fontFamilyTitle;
-//    text-align: center;
-//    color: $decorColor;
-//    margin: 100px 0 60px 0;
-//
-//    &::before, &::after {
-//      content: "";
-//      position: absolute;
-//      top: 50%;
-//      width: $width;
-//      height: 2px;
-//      background-color: $decorColor;
-//    }
-//
-//    &::before {
-//      left: 0;
-//    }
-//
-//    &::after {
-//      right: 0;
-//    }
-//  }
-//}
 
 @mixin header-block {
   .header-block {
@@ -143,37 +107,19 @@ $small: 425px;
   }
 }
 
-@mixin header-blockMiddle($width) {
-  .header-block {
-    width: 56%;
-  }
-  .header-block__title {
-    font-size: $fontSizeLabelMiddle;
-    line-height: $lineHeightLabelMiddle;
-    margin: 80px 0 50px 0;
-
-    &::before, &::after {
-      width: $width;
-    }
-  }
-}
-
-@mixin header-blockSmall($width) {
+@mixin header-blockMiddle {
   .header-block {
     width: 100%;
   }
-  .header-block__title {
-    font-size: 25px;
-    line-height: $lineHeightLabelMiddle;
-    margin: 40px 0 15px 0;
-
-    &::before, &::after {
-      width: $width;
-      height: 1px;
-    }
-  }
 }
 
+@mixin header-blockSmall {
+  .header-block {
+    width: 100%;
+    font-size: $fontSizeLabelMiddle;
+    line-height: $lineHeightLabelMiddle;
+  }
+}
 
 %img {
   position: absolute;
@@ -206,7 +152,6 @@ body._lock {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
-
 }
 
 ._container {
@@ -279,7 +224,6 @@ body._lock {
   &__separator {
     margin: 0 6px;
   }
-
 }
 
 .menu {
@@ -295,7 +239,6 @@ body._lock {
   }
 
   &__item {
-
   }
 
   &__link {
@@ -449,20 +392,18 @@ body._lock {
 @media (max-width: $small) {
   .header {
     &__container {
-      min-height: 60px;
+      min-height: 80px;
     }
 
     &__logo {
-      min-width: 30px;
-      min-height: 25px;
-      background-size: cover;
-
+      min-width: 40px;
+      min-height: 35px;
+      background-size: contain;
     }
 
     &__language {
       margin: 0 26px 0 0;
-      font-size: 15px;
-
+      font-size: 30px;
 
       .language__separator {
         margin: 0 4px 0 4px;
@@ -474,40 +415,37 @@ body._lock {
 
     &__body {
       padding: 60px 20px 20px 30px;
+      width: 100%;
 
       &._active {
         right: 0;
         box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
       }
-
-      .menu__list {
-        display: block;
-      }
     }
 
     &__link {
-      font-size: 20px;
+      font-size: $fontSizeLabelMiddle;
+      padding: 0 15px;
+      line-height: $lineHeight;
+      transition: $transition;
     }
-
     &__icon {
-      width: 25px;
-      height: 13px;
+      width: 35px;
+      height: 23px;
 
       span,
       &::before,
       &::after {
-        height: 1px;
+        height: 2px;
       }
 
       &::before,
       &::after {
         content: "";
       }
-
     }
   }
 }
-
 /*------------------------------------------------PAGE----------------------------------------------*/
 .page {
   flex: 1 1 auto;
@@ -641,9 +579,9 @@ body._lock {
   position: relative;
   z-index: 5;
   margin: 0 0 20px 0;
+  padding: 40px 0 0 0;
 
   &__container {
-
     @include header-block;
   }
 
@@ -653,7 +591,7 @@ body._lock {
   &__body {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -20px;
+    margin: 20px -20px 0 -20px;
   }
 
   &__column {
@@ -678,9 +616,6 @@ body._lock {
       background: url('../assets/img/skills/mic.svg') 50% 0 no-repeat;
     }
   }
-
-  &__item {
-  }
 }
 
 .item-skills {
@@ -702,6 +637,8 @@ body._lock {
 @media (max-width: 1024px) {
   .skills {
 
+    .container {
+    }
     &__body {
       margin: 0 -22px;
     }
@@ -709,6 +646,7 @@ body._lock {
     &__column {
       flex: 0 1 50%;
       padding: 0 22px;
+      justify-content: center;
 
       &:nth-of-type(1) {
         background: url('../assets/img/skills/camera.svg') 50% 5% no-repeat;
@@ -751,22 +689,23 @@ body._lock {
     }
   }
 }
+
 @media (max-width: $middle) {
   .skills {
 
     &__container {
-      @include header-blockMiddle(117px);
-    }
+        @include header-blockMiddle;
 
-    .header-block__title {
-      line-height: 125%;
-      margin: 100px 0 56px 0;
-    }
+      .header-block__title {
+        line-height: 125%;
+        margin: 100px 0 56px 0;
+      }
 
-    .item-skills {
+      .item-skills {
 
-      &__label {
-        margin: 0 0 20px 0;
+        &__label {
+          margin: 0 0 20px 0;
+        }
       }
     }
   }
@@ -776,7 +715,7 @@ body._lock {
   .skills {
 
     &__container {
-      @include header-blockSmall(120px);
+      @include header-blockSmall;
     }
 
     &__body {
@@ -834,6 +773,7 @@ body._lock {
 
 /*-------------------------PORTFOLIO-------------------------*/
 .portfolio {
+  padding: 40px 0 0 0;
 
   &__container {
     @include header-block;
@@ -845,7 +785,7 @@ body._lock {
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin: 0 0 60px 0;
+    margin: 20px 0 60px 0;
   }
 
   &__body {
@@ -875,25 +815,20 @@ body._lock {
 .button {
   .button__dark {
     margin: 0 5px 0 0;
-    @include button($btnDarkBgColor, $btnDarkTextColor, $btnDarkBorder, 8px 79px 7px 79px);
-    //
-    //&:nth-child(3) {
-    //  $btnPadding: 8px 70px 7px 69px;
-    //  padding: $btnPadding;
-    //}
+    @include button($btnDarkBgColor, $btnDarkTextColor, $btnDarkBorder, 8px 73px 7px 73px);
   }
 
   ._active {
-    @include button($btnLightBgColor, $btnLightTextColor, none, 8px 73px 7px 73px);
+    @include button($btnLightBgColor, $btnLightTextColor, none, 8px 76px 7px 76px);
   }
 }
 
 /*---Адаптив---*/
 @media (max-width: 1024px) {
   .portfolio {
+    padding: 0;
 
     &__container {
-      @include header-blockMiddle(90px);
     }
 
     .button {
@@ -916,11 +851,10 @@ body._lock {
   .portfolio {
 
     &__container {
-      @include header-blockMiddle(90px);
+      @include header-blockMiddle;
     }
 
     &__buttons {
-      //max-width: 445px;
       display: grid;
       grid-template-columns: 220px 220px;
       grid-auto-rows: 54px 54px;
@@ -931,53 +865,41 @@ body._lock {
         margin: 0;
       }
     }
-
-    &__item {
-      flex: 0 1 100%;
-    }
   }
 }
-
-@media (max-width: $small) {
+@media (max-width: 550px) {
   .portfolio {
-
-    &__container {
-      @include header-blockSmall(110px);
-    }
 
     &__buttons {
       display: grid;
       grid-template-columns: 155px 155px;
-      grid-auto-rows: 40px 40px;
       gap: 5px;
       margin: 0 auto 60px;
 
       .button {
-
         .button__dark {
-
           @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall);
-
         }
-
         .button__gold {
           @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall);
         }
       }
-
-      //.button__dark {
-      //  margin: 0;
-      //}
     }
+  }
+}
+@media (max-width: $small) {
+  .portfolio {
 
-    &__item {
-      flex: 0 1 100%;
+    &__container {
+      @include header-blockSmall;
     }
   }
 }
 
 /*---------------------------VIDEO---------------------------*/
 .video {
+  padding: 40px 0 0 0;
+
   &__container {
     @include header-block;
   }
@@ -1141,7 +1063,7 @@ body._lock {
 @media (max-width: 1024px) {
   .video {
     &__container {
-      @include header-blockMiddle(117px);
+
     }
 
     .video__button-custom {
@@ -1153,8 +1075,9 @@ body._lock {
 @media (max-width: $middle) {
   .video {
     &__container {
-      @include header-blockMiddle(117px);
+      @include header-blockMiddle;
     }
+
 
     .video__button-custom {
       width: 70px;
@@ -1166,6 +1089,11 @@ body._lock {
 
 @media (max-width: $small) {
   .video {
+    padding: 10px 0 0 0;
+
+    &__container {
+      @include header-blockSmall;
+    }
 
     .video__button-custom {
       width: 35px;
@@ -1176,6 +1104,7 @@ body._lock {
 
 /*---------------------------Price---------------------------*/
 .price {
+  padding: 40px 0 0 0;
 
   &__container {
     @include header-block;
@@ -1244,12 +1173,9 @@ body._lock {
   }
 }
 
-
-
 /*---Адаптив---*/
 @media (max-width: 1440px) {
   .price {
-
 
     &__body {
       gap: 25px;
@@ -1289,10 +1215,6 @@ body._lock {
 @media (max-width: 1024px) {
   .price {
 
-    &__container {
-      @include header-blockSmall(121px);
-    }
-
     &__body {
       gap: 20px;
       padding: 0;
@@ -1315,7 +1237,7 @@ body._lock {
   .price {
 
     &__container {
-      @include header-blockMiddle(121px);
+      @include header-blockMiddle;
     }
 
     &__body {
@@ -1339,9 +1261,10 @@ body._lock {
 
 @media (max-width: $small) {
   .price {
+    padding: 10px 0 0 0;
 
     &__container {
-      @include header-blockSmall(121px);
+      @include header-blockSmall;
     }
 
     &__body {
@@ -1447,7 +1370,7 @@ body._lock {
     &__body {
       padding: 60px 0 111px 0;
       margin: 0;
-      min-width: 450px;
+      width: 100%;
     }
 
     &__title {
