@@ -605,6 +605,65 @@ body._lock {
   background-color: black;
   padding: 20px;
 }
+.portfolio__search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0 0 15px 0;
+}
+.portfolio__search .search__logo {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.portfolio__search .search__logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+.portfolio__search .search__logo .search__link {
+  color: white;
+  font-size: 28px;
+}
+.portfolio__search .search__input-block {
+  position: relative;
+}
+.portfolio__search .search__input-block .search__input {
+  padding: 0 15px;
+  color: #beaf83;
+  font-size: 18px;
+  line-height: 200%;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  position: relative;
+}
+.portfolio__search .search__input-block .search__input::placeholder {
+  font-family: inherit;
+  color: white;
+  font-size: inherit;
+}
+.portfolio__search .search__input-block .search__input:focus, .portfolio__search .search__input-block .search__input:hover {
+  border: 2px solid #beaf83;
+  color: #beaf83;
+}
+.portfolio__search .search__input-block .search__input:hover::placeholder, .portfolio__search .search__input-block .search__input:focus::placeholder {
+  color: #beaf83;
+}
+.portfolio__search .search__input-block .search__submit {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 1rem;
+  padding: 1px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.portfolio__search .search__input-block .search__submit:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
 .portfolio__buttons {
   display: flex;
   flex-wrap: wrap;
@@ -708,6 +767,9 @@ body._lock {
   .portfolio__container .header-block {
     width: 100%;
   }
+  .portfolio .search__input-block input.search__input {
+    width: 200px;
+  }
   .portfolio__buttons {
     display: grid;
     grid-template-columns: 220px 220px;
@@ -764,6 +826,9 @@ body._lock {
     width: 100%;
     font-size: 32px;
     line-height: 250%;
+  }
+  .portfolio .search__input-block input.search__input {
+    width: 170px;
   }
 }
 /*---------------------------VIDEO---------------------------*/
