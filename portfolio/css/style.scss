@@ -429,6 +429,7 @@ body._lock {
       line-height: $lineHeight;
       transition: $transition;
     }
+
     &__icon {
       width: 35px;
       height: 23px;
@@ -446,6 +447,7 @@ body._lock {
     }
   }
 }
+
 /*------------------------------------------------PAGE----------------------------------------------*/
 .page {
   flex: 1 1 auto;
@@ -639,6 +641,7 @@ body._lock {
 
     .container {
     }
+
     &__body {
       margin: 0 -22px;
     }
@@ -694,7 +697,7 @@ body._lock {
   .skills {
 
     &__container {
-        @include header-blockMiddle;
+      @include header-blockMiddle;
 
       .header-block__title {
         line-height: 125%;
@@ -816,37 +819,36 @@ body._lock {
           color: $fontColor;
           font-size: inherit;
         }
+
         &:focus,
         &:hover {
           border: 2px solid $decorColor;
           color: $decorColor;
         }
+
         &:hover::placeholder,
         &:focus::placeholder {
           color: $decorColor;
         }
 
       }
-        .search__submit {
-          position: absolute;
-          top: 50%;
-          transform: translate(0, -50%);
-          right: 1rem;
-          padding: 1px;
-          width: 24px;
-          height: 24px;
-          display: flex;
-          align-items: center;
+      .search__submit {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 1rem;
+        padding: 1px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
 
-          cursor: pointer;
-          transition: $transition;
-          @include hover($svgHoverColor);
+        cursor: pointer;
+        transition: $transition;
+        @include hover($svgHoverColor);
 
-        }
-
-
+      }
     }
-
   }
 
   &__buttons {
@@ -878,6 +880,31 @@ body._lock {
 
     img {
       @extend %img;
+    }
+  }
+  .portfolio__search-pagination {
+    padding: 20px 0 0 0;
+  }
+  .search-pagination__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-pagination__button {
+      border: 1px solid $decorColor;
+      border-radius: 20px;
+      font-size: $fontSize;
+      min-width: 80px;
+      padding: 0 5px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      transition: $transition;
+      @include hover($svgHoverColor);
+
+      &:not(:last-child) {
+        margin: 0 20px 0 0;
+      }
     }
   }
 }
@@ -923,11 +950,13 @@ body._lock {
     &__container {
       @include header-blockMiddle;
     }
+
     .search__input-block {
       input.search__input {
         width: 200px;
       }
     }
+
     &__buttons {
       display: grid;
       grid-template-columns: 220px 220px;
@@ -941,6 +970,7 @@ body._lock {
     }
   }
 }
+
 @media (max-width: 550px) {
   .portfolio {
 
@@ -954,6 +984,7 @@ body._lock {
         .button__dark {
           @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall);
         }
+
         .button__gold {
           @include buttonSmall($btnLightBgColor, $btnLightTextColor, none, $btnPaddingSmall);
         }
@@ -961,12 +992,14 @@ body._lock {
     }
   }
 }
+
 @media (max-width: $small) {
   .portfolio {
 
     &__container {
       @include header-blockSmall;
     }
+
     .search__input-block {
       input.search__input {
         width: 170px;
@@ -1151,6 +1184,7 @@ body._lock {
     }
   }
 }
+
 @media (max-width: $middle) {
   .video {
     &__container {
@@ -1218,6 +1252,7 @@ body._lock {
     text-align: center;
     padding: 43px 42px 40px 42px;
   }
+
   .item-price {
 
     &__label {
@@ -1271,6 +1306,7 @@ body._lock {
       text-align: center;
       padding: 20px 5px;
     }
+
     .item-price {
 
       &__label {

@@ -688,6 +688,32 @@ body._lock {
   position: relative;
   width: 100%;
 }
+.portfolio .portfolio__search-pagination {
+  padding: 20px 0 0 0;
+}
+.portfolio .search-pagination__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio .search-pagination__buttons .search-pagination__button {
+  border: 1px solid #beaf83;
+  border-radius: 20px;
+  font-size: 18px;
+  min-width: 80px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.portfolio .search-pagination__buttons .search-pagination__button:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+.portfolio .search-pagination__buttons .search-pagination__button:not(:last-child) {
+  margin: 0 20px 0 0;
+}
+
 .button .button__dark {
   margin: 0 5px 0 0;
   display: flex;
