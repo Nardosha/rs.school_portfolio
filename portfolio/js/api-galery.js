@@ -1,18 +1,21 @@
-const url = 'https://api.unsplash.com/photos?random&page=6&client_id=_emQs17Y5hPeK1aBApi0Z_8u19qQfOcGlw30s0-nKOE'
+const seasons = ['winter', 'spring', 'summer', 'autumn']
+const url = `https://api.unsplash.com/photos?query=${seasons[1]}&per_page=6&client_id=_emQs17Y5hPeK1aBApi0Z_8u19qQfOcGlw30s0-nKOE`
 
-async function getData() {
+async function getData(url) {
     const res = await fetch(url)
     const data = await res.json()
     console.log(data)
     showImg(data)
+
 }
-getData()
+getData(url)
 
 
 function showImg(data) {
     const imgContainer = document.querySelector('.portfolio__body')
 
     data.map((item, index) => {
+
         let imgItem = document.createElement('div')
         let img = document.createElement('img')
         imgContainer.appendChild(imgItem)
@@ -22,12 +25,31 @@ function showImg(data) {
         img.alt = `image`
         let imgUrl = item.urls.regular
         img.src = `${imgUrl}`
+
+        return function deleteCard(item) {
+            // return item.remove()
+        }
     })
 }
 
-function getInput() {
+// function deleteCard(item) {
+//     item.remove()
+// }
+
+
+
+function getInput(url, data) {
+    const searchBtn = document.querySelector('.search__submit')
     const input = document.querySelector('.search__input')
-    console.log(input.value);
+
+
+    searchBtn.addEventListener('click', (event) => {
+        event.preventDefault()
+        const newValue = input.value
+        url = `https://api.unsplash.com/photos?query=${newValue}&per_page=6&client_id=_emQs17Y5hPeK1aBApi0Z_8u19qQfOcGlw30s0-nKOE`;
+        input.value = '';
+    })
+
 }
 
 console.log(getInput())
