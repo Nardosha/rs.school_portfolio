@@ -779,6 +779,76 @@ body._lock {
     @include header-block;
   }
 
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0 0 15px 0;
+
+    .search__logo {
+      cursor: pointer;
+      transition: $transition;
+      @include hover($svgHoverColor);
+
+      .search__link {
+        color: $fontColor;
+        font-size: $fontSizeLabelMiddle - 4;
+      }
+
+    }
+
+    .search__input-block {
+      position: relative;
+
+      .search__input {
+        padding: 0 15px;
+        color: $decorColor;
+        font-size: $fontSize;
+        line-height: $lineHeight;
+        border: 2px solid $fontColor;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        position: relative;
+
+        &::placeholder {
+          font-family: inherit;
+          color: $fontColor;
+          font-size: inherit;
+        }
+        &:focus,
+        &:hover {
+          border: 2px solid $decorColor;
+          color: $decorColor;
+        }
+        &:hover::placeholder,
+        &:focus::placeholder {
+          color: $decorColor;
+        }
+
+      }
+        .search__submit {
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          right: 1rem;
+          padding: 1px;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+
+          cursor: pointer;
+          transition: $transition;
+          @include hover($svgHoverColor);
+
+        }
+
+
+    }
+
+  }
+
   &__buttons {
     display: flex;
     flex-wrap: wrap;
@@ -853,7 +923,11 @@ body._lock {
     &__container {
       @include header-blockMiddle;
     }
-
+    .search__input-block {
+      input.search__input {
+        width: 200px;
+      }
+    }
     &__buttons {
       display: grid;
       grid-template-columns: 220px 220px;
@@ -892,6 +966,11 @@ body._lock {
 
     &__container {
       @include header-blockSmall;
+    }
+    .search__input-block {
+      input.search__input {
+        width: 170px;
+      }
     }
   }
 }
